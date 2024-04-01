@@ -107,6 +107,12 @@ function Chat() {
           id="message" 
           value={message} 
           onChange={handleMessageChange} 
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              handleSendMessage();
+            }
+          }}
           placeholder="Your message"
           className='p-2 rounded-lg flex-1 outline-none'
         />
